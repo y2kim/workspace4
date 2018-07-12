@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="Messages">
+    	<select id="selectAll" resultType="MessagesDTO">
+    	<!-- typeAliases 로  resultType 줄일수 있다  -->
+    		select * from messages
+    	</select>
+    	
+    	<insert id="insert" parameterType="MessagesDTO">
+    		insert into messages values (messages_seq.nextval,#{writer},#{contents})
+    	</insert>
+    	
+    	<delete id="delete" parameterType="MessagesDTO">
+    		delete messages where SEQ = #{seq}
+    	</delete>
+    	
+    </mapper>
+    
+<!-- ; 붙이지 말것 ,  언어의 독립성이 강하다  -->

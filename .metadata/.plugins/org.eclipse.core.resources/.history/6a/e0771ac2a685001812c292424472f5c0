@@ -1,0 +1,126 @@
+package kh.mybatis.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSession;
+
+import kh.mybatis.dto.MessagesDTO;
+
+
+public class MessagesDAO {
+	//트랙젝션 처리 이슈 해결하기위한 이유
+	public List<MessagesDTO> getAllData(SqlSession session) {
+		List<MessagesDTO> list = null;
+		try {
+			list = session.selectList("Messages.selectAll");
+			
+		} finally {
+			session.close();
+		}
+		// 우리가 만들것  "Messages.selectAll"  <-- namespace
+		// 세션은 닫히게 만들어야함 
+		return list;
+	}
+	
+	
+	public int insertNewData(SqlSession session , MessagesDTO mdto)  {
+		int result = 0;
+		try {
+			result = session.insert("Messages.insert",mdto);
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+	
+	public int deleteData(SqlSession session , int seq)  {
+		int result = 0;
+		try {
+			result = session.delete("Messages.delete",seq);
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+	
+	public int deleteDataDto(SqlSession session ,  MessagesDTO mdto)  {
+		int result = 0;
+		// 달라로 받을때 
+		try {
+			result = session.delete("Messages.delete",mdto);
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+	
+	public int updateData(SqlSession session , MessagesDTO mdto)  {
+		int result = 0;
+		try {
+			result = session.update("Messages.update",mdto);
+		} finally {
+			session.commit();
+			session.close();
+		}
+		return result;
+	}
+	
+	public List<MessagesDTO> selectWriter(SqlSession session , String text) {
+		List<MessagesDTO> list = null;
+		try {
+			list = session.selectList("Messages.selectwriter",text);
+			
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	
+	public List<MessagesDTO> selectContent(SqlSession session , String text) {
+		List<MessagesDTO> list = null;
+		try {
+			list = session.selectList("Messages.selectcontent",text);
+			
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	
+	public List<MessagesDTO> selectDetale(SqlSession session,  MessagesDTO mdto ) {
+		List<MessagesDTO> list = null;
+		try {
+			list = session.selectList("Messages.selectdetale",mdto);
+			
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+
+
+	public List<MessagesDTO> selectByComplecCondtion(SqlSession Session, Map<String, String> condition) {
+		List<MessagesDTO> list = null;
+		try {
+			list = Session.selectList("Messages.selectByComplecCondtion",condition);
+			
+		} finally {
+			Session.close();
+		}
+		
+		return null;
+	}
+	
+}

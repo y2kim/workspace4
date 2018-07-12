@@ -5,6 +5,9 @@ public class MessagesDTO {
 	private String writer;
 	private String contents;
 	
+	public String toString() {
+		return this.seq + " : " + writer + " : " + contents ;
+	}
 	
 	public MessagesDTO() {
 		super();

@@ -1,7 +1,9 @@
 package kh.mybatis.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,21 +24,103 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(command);
-		
+		request.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf8");
 		//response.sendRedirect("index.html");
 		
 		if(command.equals("/select.do")) {
-			try {
+
 			MessagesDAO dao = new MessagesDAO();
 			List<MessagesDTO> result = dao.getAllData(MyBatisSqlSessionFactory.getSqlSession());
 			
 			for(MessagesDTO tmp : result) {
-				System.out.println(tmp.getSeq() + ":" + tmp.getWriter() + ":" + tmp.getContents());
+				System.out.println(tmp);
 			}
-			}catch (Exception e) {
-				
+
+		}else if(command.equals("/insert.do")) {
+			String writer = request.getParameter("writer");
+			String contents = request.getParameter("contents");
+			
+			MessagesDTO dto = new MessagesDTO(0,writer,contents);
+			MessagesDAO dao = new MessagesDAO();
+			
+			int result = dao.insertNewData(MyBatisSqlSessionFactory.getSqlSession(), dto);
+			
+			String resultMessage = result >0 ? " 입력 성공" : "입력 실패";
+			System.out.println(resultMessage);
+			
+			
+		}else if(command.equals("/delete.do")) {
+			String seq_no = request.getParameter("seq");
+			int seq = Integer.parseInt(seq_no);
+			
+			MessagesDAO dao = new MessagesDAO();
+			
+			int result = dao.deleteData(MyBatisSqlSessionFactory.getSqlSession(), seq);
+			
+			String resultMessage = result >0 ? " 입력 성공" : "입력 실패";
+			System.out.println(resultMessage);
+		}else if(command.equals("/update.do")) {
+			String seq_no = request.getParameter("seq");
+			int seq = Integer.parseInt(seq_no);
+			String writer = request.getParameter("writer");
+			String contents = request.getParameter("contents");
+			
+			MessagesDTO dto = new MessagesDTO(seq,writer,contents);
+			MessagesDAO dao = new MessagesDAO();
+			
+			int result = dao.updateData(MyBatisSqlSessionFactory.getSqlSession(), dto);
+			
+			String resultMessage = result >0 ? " 입력 성공" : "입력 실패";
+			System.out.println(resultMessage);
+		}else if(command.equals("/writerselect.do")) {
+			String text = request.getParameter("textabout");
+			MessagesDAO dao = new MessagesDAO();
+			System.out.println(text);
+			List<MessagesDTO> result = dao.selectWriter(MyBatisSqlSessionFactory.getSqlSession(), text);
+			
+			for(MessagesDTO tmp : result) {
+				System.out.println(tmp);
 			}
-		}else if(command.equals("/f.do")) {
+			
+		}else if(command.equals("/contentselect.do")) {
+			String text = request.getParameter("textabout");
+			MessagesDAO dao = new MessagesDAO();
+			
+			List<MessagesDTO> result = dao.selectContent(MyBatisSqlSessionFactory.getSqlSession(), text);
+			
+			for(MessagesDTO tmp : result) {
+				System.out.println(tmp);
+			}
+		}else if(command.equals("/detalesearch.do")) {
+			String writer = request.getParameter("writer");
+			String contents = request.getParameter("contents");
+			
+			MessagesDTO dto = new MessagesDTO(0,writer,contents);
+			MessagesDAO dao = new MessagesDAO();
+			
+			List<MessagesDTO> result = dao.selectDetale(MyBatisSqlSessionFactory.getSqlSession(), dto);
+			
+			for(MessagesDTO tmp : result) {
+				System.out.println(tmp);
+			}
+			
+		}else if(command.equals("/search2.do")) {
+			String writer = request.getParameter("writer");
+			String contents = request.getParameter("contents");
+			Map<String, String> condition = new HashMap<String,String>();
+			
+			condition.put("writer", writer);
+			condition.put("contents", contents);
+			
+			//MessagesDTO dto = new MessagesDTO(0,writer,contents);
+			MessagesDAO dao = new MessagesDAO();
+			List<MessagesDTO> list  = dao.selectByComplecCondtion(MyBatisSqlSessionFactory.getSqlSession(),condition);
+			//List<MessagesDTO> result = dao.selectDetale(MyBatisSqlSessionFactory.getSqlSession(), dto);
+			
+			for(MessagesDTO tmp : list) {
+				System.out.println(tmp);
+			}
 			
 		}
 		

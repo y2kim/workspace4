@@ -41,6 +41,18 @@
 			$("#selectAll").click(function(){
 				$(location).attr("href","select.do");
 			})
+			
+			$("#selectfind").click(function(){
+				var types = $("#selecttype").val();
+				
+				if(types = "writer"){
+					//$(location).attr("href","writerselect.do");	
+					$("#suckfornt").attr('action','writerselect.do').submit();
+				}else{
+					//$(location).attr("href","contentselect.do");	
+					$("#suckfornt").attr('action','contentselect.do').submit();
+				}
+			})
 		})
 	</script>
 	
@@ -53,11 +65,66 @@
 					<button id="selectAll">조회하기</button>
 				</div>
 			</div>
-			<div id="exam02" class="exam"></div>
-			<div id="exam03" class="exam"></div>
-			<div id="exam04" class="exam"></div>
+			<div id="exam02" class="exam">
+			<form action="insert.do" method="post">
+				<div>
+					<input type="text" placeholder="작성자를 입력하세요" name="writer"><br>
+					<input type="text" placeholder="메세지를 입력하세요" name="contents"><br>
+					<button>입력하기</button>
+				</div>
+			</form>
+			</div>
+			<div id="exam03" class="exam">
+				<form action="delete.do" method="post">
+				<div>
+					<input type="text" placeholder="삭제할  글 번호를 입력하세요" name="seq"><br>
+					<button>삭제하기</button>
+				</div>
+				</form>
+			</div>
+			<div id="exam04" class="exam">
+			<form action="update.do" method="post">
+				<div>
+					<input type="text" placeholder="수정할 글 번호를 입력하세요" name="seq"><br>
+					<input type="text" placeholder="수정할 이름을 입력하세요" name="writer"><br>
+					<input type="text" placeholder="변경될 메세지를 입려가세요" name="contents"><br>
+					<button>수정하기</button>
+				</div>
+			</form>
+			</div>
 		</div>
 		<div id="line2">
+			<div id="exam01" class="exam">
+			<form method="post" id="suckfornt">
+				<div>
+				<select id="selecttype">
+				 <option value="writer">작성자</option>
+    			 <option value="contents">글내용</option>
+				</select>
+				<input type="text" placeholder="검색" name="textabout"><br>
+				<button id="selectfind" type="button">조회하기</button>
+			</div>
+			</form>
+			</div>
+			<div id="exam02" class="exam">
+				<form action="detalesearch.do" method="post">
+				<div>
+					<input type="text" placeholder="writer 검색" name="writer"><br>
+					<input type="text" placeholder="content 검색" name="contents"><br>
+					<button>검색하기</button>
+				</div>
+				</form>
+			</div>
+			<div id="exam03" class="exam">
+				<form action="search2.do" method="post">
+				<div>
+					<input type="text" placeholder="writer 검색" name="writer"><br>
+					<input type="text" placeholder="content 검색" name="contents"><br>
+					<button>검색하기</button>
+				</div>
+				</form>
+			</div>
+			
 		</div>
 	</div>
 </body>
