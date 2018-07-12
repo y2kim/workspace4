@@ -1,0 +1,11 @@
+package kh.nxcr.dao;
+
+public class EmployeeDTO {
+	
+	private String DEPT_ID;
+	private String DEPT_TITLE;
+	private String LOCATION_ID;
+	
+	
+	
+}

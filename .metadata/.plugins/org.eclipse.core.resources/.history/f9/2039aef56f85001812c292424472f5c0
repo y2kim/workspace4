@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myBatis FrontEnd</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<style>
+		div{
+			border: 1px dotted black;
+			box-sizing: border-box;
+		}
+		
+		#wrapper{
+			width: 1200px;
+			height: 600px;
+			margin: 0px auto;
+		}
+		
+	</style>
+	
+	
+</head>
+<body>
+	<div id="wrapper">
+		<div id="line1"></div>
+		<div id="line2"></div>
+	</div>
+</body>
+</html>

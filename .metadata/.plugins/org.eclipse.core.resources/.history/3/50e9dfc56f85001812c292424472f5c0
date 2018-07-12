@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myBatis FrontEnd</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="line1"></div>
+		<div id="line2"></div>
+	</div>
+</body>
+</html>

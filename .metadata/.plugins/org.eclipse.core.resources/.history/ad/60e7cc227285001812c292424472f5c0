@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myBatis FrontEnd</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<style>
+		div{
+			border: 1px dotted black;
+			box-sizing: border-box;
+		}
+		
+		#wrapper{
+			width: 1200px;
+			height: 600px;
+			margin: 0px auto;
+		}
+		
+		
+		#line1{
+			width:100%;
+			height: 50%;
+		}
+		
+		.exam{
+			float:left;
+			width: 25%;
+			height: 300px;
+		}
+		.exam div{
+			text-align: center;
+			width:200px;
+			margin-left: 50%;
+			margin-top: 50%;
+			trasnform:translate( -50%, -50%);
+		}
+		
+	</style>
+	
+	
+</head>
+<body>
+	<div id="wrapper">
+		<div id="line1">
+			<div id="exam01" class="exam">
+				<div>
+					<button>조회하기</button>
+				</div>
+			</div>
+			<div id="exam02" class="exam"></div>
+			<div id="exam03" class="exam"></div>
+			<div id="exam04" class="exam"></div>
+		</div>
+		<div id="line2">
+		</div>
+	</div>
+</body>
+</html>

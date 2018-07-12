@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="abc" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="abc"/>
+			<item value="!"/>
+			<item value="groupreport"/>
+			<item value="grouprepor"/>
+			<item value="groupreport.group"/>
+			<item value="&quot;&lt;div&gt;&quot;+&quot;&lt;a href=meeting.meet?seq=&quot;+seq+&quot;&gt;&quot;+group+&quot;&lt;/a&gt;&quot;+&quot;&lt;/div&gt;&quot;"/>
+			<item value="&quot;&lt;div&gt;&quot;+hour+&quot;&lt;/div&gt;&quot;"/>
+			<item value="printlist"/>
+			<item value="row"/>
+			<item value="버튼"/>
+			<item value="임의"/>
+			<item value="insertTimetablesList"/>
+			<item value="가입하기"/>
+			<item value="confirm"/>
+			<item value="inArray"/>
+		</list>
+		<list key="replacehistory">
+			<item value="&quot;&lt;div class=groupname&gt;&quot;+&quot;&lt;a href=meeting.meet?seq=&quot;+seq+&quot;&gt;&quot;+group+&quot;&lt;/a&gt;&quot;+&quot;&lt;/div&gt;&quot;"/>
+			<item value="&quot;&lt;div class=timehour&gt;&quot;+hour+&quot;&lt;/div&gt;&quot;"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="304" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|-127|3|2|1|50|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="409" key="DIALOG_HEIGHT"/>
+		<item value="951" key="DIALOG_X_ORIGIN"/>
+		<item value="521" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

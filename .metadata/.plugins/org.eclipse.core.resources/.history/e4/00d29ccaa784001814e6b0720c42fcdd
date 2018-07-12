@@ -1,0 +1,30 @@
+package kh.nxcr.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.activation.DataSource;
+import javax.naming.Context;
+import javax.naming.InitialContext;;
+
+public class MessagesDAO {
+	
+	private Connection getConnection() throws Exception {
+		Context ctx = new InitialContext();
+		DataSource ds = (DataSource) ctx.lookup("java:comp/env/oracle");
+		return (Connection) ds.getInputStream();
+	}
+	
+	public int insertNewData(MessagesDTO mdto) throws Exception {
+		Connection con = this.getConnection();
+		String sql = "insert into message values(messagte_seq.nextval,?,?) ";
+		 PreparedStatement pstat = con.prepareStatement(sql);
+	      pstat.setString(1, mdto.getWriter());
+	      pstat.setString(2, mdto.getContents());
+	      int result = pstat.executeUpdate();  
+	      con.commit();
+	      pstat.close();
+	      con.close();
+	      return result;
+	}
+}

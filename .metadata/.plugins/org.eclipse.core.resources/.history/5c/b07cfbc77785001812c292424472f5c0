@@ -1,0 +1,5 @@
+package kh.mybatis.factory.copy;
+
+public class MyBatisSqlSessionFactory {
+
+}

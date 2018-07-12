@@ -1,0 +1,62 @@
+package kh.nxcr.cont;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.nexacro.xapi.data.DataSet;
+import com.nexacro.xapi.data.DataTypes;
+import com.nexacro.xapi.data.PlatformData;
+import com.nexacro.xapi.tx.HttpPlatformResponse;
+import com.nexacro.xapi.tx.PlatformType;
+
+import kh.nxcr.dao.EmployeeDAO;
+import kh.nxcr.dao.EmployeeDTO;
+
+
+
+
+@WebServlet("/Frontconroller")
+public class Frontconroller extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+		EmployeeDAO dao = new EmployeeDAO();
+		List<EmployeeDTO> result = dao.getAllData();
+		
+		PlatformData outputData = new PlatformData();
+		
+		DataSet ds = new DataSet("respDs");
+		
+		ds.addColumn("Dept_Title",DataTypes.STRING, 256);
+		
+		
+		for(EmployeeDTO tmp:result) {
+			int row = ds.newRow();
+			
+			ds.set(row, "writer", tmp.getDEPT_TITLE());
+			
+		}
+		
+		outputData.addDataSet(ds);
+		HttpPlatformResponse resp 
+			= new HttpPlatformResponse(response,PlatformType.CONTENT_TYPE_XML,"UTF-8");
+		resp.setData(outputData);
+		resp.sendData();
+		
+		}catch (Exception e) {
+			e.getStackTrace();
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+	}
+
+}

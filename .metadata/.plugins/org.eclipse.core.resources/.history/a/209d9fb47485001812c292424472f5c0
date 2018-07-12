@@ -1,0 +1,5 @@
+package kh.mybatis.dao;
+
+public class MessagesDAO {
+
+}

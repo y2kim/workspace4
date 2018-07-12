@@ -1,0 +1,42 @@
+package kh.nxcr.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class EmployeeDAO {
+
+	private Connection getConnection() throws Exception {
+		Context ctx = new InitialContext();
+		DataSource ds = (DataSource) ctx.lookup("java:/comp/env/oracle");
+		return ds.getConnection();
+	}
+	
+	
+	public List<EmployeeDTO> getAllData() throws Exception {
+		Connection con = this.getConnection();
+		String sql = "Select * from department";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		ResultSet rs = pstat.executeQuery();
+		List<EmployeeDTO> list = new ArrayList<>();
+		while(rs.next()) {
+			EmployeeDTO edto = new EmployeeDTO();
+			edto.setDEPT_ID(rs.getString(1));
+			edto.setDEPT_TITLE(rs.getString(2));
+			edto.setLOCATION_ID(rs.getString(3));
+			list.add(edto);
+		}
+		rs.close();
+		pstat.close();
+		con.close();
+		
+		return list;
+	}
+	
+}

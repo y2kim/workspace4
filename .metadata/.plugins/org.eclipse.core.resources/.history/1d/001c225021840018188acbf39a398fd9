@@ -1,0 +1,63 @@
+package kh.necr.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.nexacro.xapi.data.DataSet;
+import com.nexacro.xapi.data.DataTypes;
+import com.nexacro.xapi.data.PlatformData;
+import com.nexacro.xapi.data.datatype.DataType;
+import com.nexacro.xapi.tx.HttpPlatformRequest;
+import com.nexacro.xapi.tx.HttpPlatformResponse;
+import com.nexacro.xapi.tx.PlatformException;
+import com.nexacro.xapi.tx.PlatformType;
+
+
+@WebServlet("*.do")
+public class FrontController extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//System.out.println("요청 확인");   
+		try {
+			HttpPlatformRequest req = new HttpPlatformRequest(request);
+			req.receiveData();
+			PlatformData inputData = req.getData();
+			DataSet ds = inputData.getDataSet("request");
+			String writer = ds.getString(0, "writer");
+			String message = ds.getString(0, "message");
+			
+			//System.out.println(writer +" : "+ message);
+			
+			// 되돌렬 보낼 데이터 구조 생성
+			PlatformData outputData = new PlatformData();
+			// 되도렬 보낸 데이터 추가할 데이터 셋 추가
+			DataSet respDs = new DataSet("resp");
+			// 해당 데이터 셋에 컬럼 추가
+			respDs.addColumn("forward",DataTypes.STRING, 256);
+			// 해당 데이터 셋에 새 행을 생성하고 데이터 추가
+			int row = respDs.newRow();
+			respDs.set(row, "forword", "Base::formmain.xfdl");
+			// 데이터셋을 플랫폼을 데이터에 추가 
+			outputData.addDataSet(respDs);
+			
+			HttpPlatformResponse respData = 
+					new HttpPlatformResponse(response,PlatformType.CONTENT_TYPE_XML,"UTF-8");
+			
+			respData.setData(outputData);
+			respData.sendData();
+			
+		} catch (PlatformException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+	}
+
+}

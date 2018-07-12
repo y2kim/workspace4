@@ -1,0 +1,5 @@
+package kh.nxcr.dao;
+
+public class MessagesDTO {
+
+}

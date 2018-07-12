@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="MyBatisFramwork_07_12">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <property name="context-root" value="MyBatisFramwork_07_12"/>
+        <property name="java-output-path" value="/MyBatisFramwork_07_12/build/classes"/>
+    </wb-module>
+</project-modules>
