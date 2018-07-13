@@ -3,7 +3,7 @@
   <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost semi-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost semi" name="Tomcat v8.5 Server at localhost semi" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="2">
     <list key="modules" value0="nxcr::org.eclipse.jst.jee.server:nxcr::jst.web::3.1"/>
   </server>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="1">
-    <list key="modules" value0="MyBatisFramwork_07_12::org.eclipse.jst.jee.server:MyBatisFramwork_07_12::jst.web::3.1"/>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="2">
+    <list key="modules" value0="MyBatisFramwork_07_12::org.eclipse.jst.jee.server:MyBatisFramwork_07_12::jst.web::3.1" value1="MyBatisPractice::org.eclipse.jst.jee.server:MyBatisPractice::jst.web::3.1"/>
   </server>
 </servers>

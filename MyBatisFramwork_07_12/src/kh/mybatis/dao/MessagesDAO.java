@@ -122,5 +122,19 @@ public class MessagesDAO {
 		
 		return list;
 	}
+
+
+	public List<MessagesDTO> selectByWriterList(SqlSession Session, Map<String, String[]> condition) {
+		List<MessagesDTO> list = null;
+		
+		try {
+			list = Session.selectList("Messages.selectByWriterList",condition);
+			
+		} finally {
+			Session.close();
+		}
+		
+		return list;
+	}
 	
 }

@@ -22,7 +22,10 @@
   </environments>
   
   <mappers>
-    <mapper resource="kh/mybatis/xml/mapper.xml"/>
+   <!-- 매퍼방식 -->
+   <!--  <mapper resource="kh/mybatis/xml/mapper.xml"/> -->
+     <!-- 어노테이션 방식 -->
+    <mapper class="kh.mybatis.imapper.IMessgesDAO"/> 
   </mappers>
   <!-- mapper 가 확인  -->
 </configuration>

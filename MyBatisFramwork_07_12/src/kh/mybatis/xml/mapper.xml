@@ -37,7 +37,7 @@
     	<!-- 동적 쿼리  -->
     		select * from messages 
     	<trim prefix="where" prefixOverrides="and">
-    		<!-- 손질 하다    -->
+    		<!-- 손질 하다   , 쿼테이션 안에서는 샵이나 달라 붙이는거 아니다 -->
     		<!-- prefixOverrides 앞에 XX 가 붙을경우 무시한다  -->
     	<if test="writer != null">
     		writer like  '%'||#{writer}||'%'
@@ -48,6 +48,19 @@
     	</if> 
     	</trim>
     	
+    	</select>
+    	
+    	<select id="selectByWriterList" resultType="MessagesDTO">
+    		select * from messages
+    		<trim prefix="where writer in">
+    			<if test="writers!=null">
+    		<!-- 조건에 안 맞은경우 trim은 무시    -->
+    		<foreach collection="writers" item="writer" open="(" close=")" separator=",">
+    			#{writer}
+    		</foreach>
+    			</if>
+    		</trim>
+    		
     	</select>
     	
     </mapper>

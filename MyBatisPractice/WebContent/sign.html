@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<style >
+		div{
+			border: 1px dotted black;
+			box-sizing: border-box;
+		}
+		
+		#wrapper{
+			width: 1200px;
+			height: 600px;
+			margin: 0px auto;
+		}
+		
+		
+		#line1{
+			width:100%;
+			height: 50%;
+		}
+		
+		.exam{
+			float:left;
+			width: 25%;
+			height: 300px;
+		}
+		.exam div{
+			text-align: center;
+			width:200px;
+			margin-left: 25%;
+			margin-top: 40%;
+			
+		}
+		
+</style>
+<script >
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="exam02" class="exam">
+			<form action="insert.do" method="post" id="inse">
+				<div>
+					<input type="text" placeholder="아이디" name="memberid" id="val1" ><br>
+					<input type="text" placeholder="비밀번호" name="password" id="val2" ><br>
+					<input type="text" placeholder="이름" name="name" id="val3" ><br>
+					<input type="text" placeholder="이메일" name="email"><br>
+					<button id="todo">회원가입</button>
+				</div>
+			</form>
+	</div>
+</div>
+</body>
+</html>

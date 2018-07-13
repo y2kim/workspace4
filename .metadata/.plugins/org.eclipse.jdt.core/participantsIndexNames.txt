@@ -11,12 +11,14 @@ D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\183420
 \Semi_Project\src
 D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2114283245.index
 \Semi_Project\src
+D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1959508451.index
+\MyBatisPractice\src
+D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3654958493.index
+\Semi_Project\src
 D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\197499257.index
 \Semi_Project\src
 D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2559079400.index
 \Message\src
-D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3654958493.index
-\Semi_Project\src
 D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3289578774.index
 \Semi_Project\src
 D:\y2kim\workspace4\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1473569741.index

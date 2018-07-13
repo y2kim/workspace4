@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kh.mybatis.dao.MessagesDAO;
+import kh.mybatis.dao.MessagesDAOimpl;
 import kh.mybatis.dto.MessagesDTO;
 import kh.mybatis.factory.MyBatisSqlSessionFactory;
 import oracle.net.jdbc.nl.NetStrings;
@@ -30,8 +31,10 @@ public class FrontController extends HttpServlet {
 		
 		if(command.equals("/select.do")) {
 
-			MessagesDAO dao = new MessagesDAO();
-			List<MessagesDTO> result = dao.getAllData(MyBatisSqlSessionFactory.getSqlSession());
+			//MessagesDAO dao = new MessagesDAO();
+			MessagesDAOimpl idao = new MessagesDAOimpl();
+			
+			List<MessagesDTO> result = idao.getAllData(MyBatisSqlSessionFactory.getSqlSession());
 			
 			for(MessagesDTO tmp : result) {
 				System.out.println(tmp);
@@ -40,11 +43,13 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/insert.do")) {
 			String writer = request.getParameter("writer");
 			String contents = request.getParameter("contents");
+			System.out.println(writer);
+			System.out.println(contents);
 			
 			MessagesDTO dto = new MessagesDTO(0,writer,contents);
-			MessagesDAO dao = new MessagesDAO();
-			
-			int result = dao.insertNewData(MyBatisSqlSessionFactory.getSqlSession(), dto);
+			MessagesDAOimpl idao = new MessagesDAOimpl();
+			//MessagesDAO dao = new MessagesDAO();
+			int result = idao.insertNewData(MyBatisSqlSessionFactory.getSqlSession(), dto);
 			
 			String resultMessage = result >0 ? " 입력 성공" : "입력 실패";
 			System.out.println(resultMessage);
@@ -54,12 +59,13 @@ public class FrontController extends HttpServlet {
 			String seq_no = request.getParameter("seq");
 			int seq = Integer.parseInt(seq_no);
 			
-			MessagesDAO dao = new MessagesDAO();
+			MessagesDAOimpl idao = new MessagesDAOimpl();
 			
-			int result = dao.deleteData(MyBatisSqlSessionFactory.getSqlSession(), seq);
+			int result = idao.deleteData(MyBatisSqlSessionFactory.getSqlSession(), seq);
 			
 			String resultMessage = result >0 ? " 입력 성공" : "입력 실패";
 			System.out.println(resultMessage);
+			
 		}else if(command.equals("/update.do")) {
 			String seq_no = request.getParameter("seq");
 			int seq = Integer.parseInt(seq_no);
@@ -122,6 +128,18 @@ public class FrontController extends HttpServlet {
 				System.out.println(tmp);
 			}
 			
+		}else if(command.equals("/search3.do")) {
+			String[] writers = request.getParameterValues("writer");
+			// 체크박스 이니까  
+			Map<String, String[]> condition = new HashMap<>();
+			condition.put("writers", writers);
+			
+			MessagesDAOimpl idao = new MessagesDAOimpl();
+			List<MessagesDTO> list  = idao.selectByWriterList(MyBatisSqlSessionFactory.getSqlSession(),condition);
+			
+			for(MessagesDTO tmp : list) {
+				System.out.println(tmp);
+			}
 		}
 		
 	}
