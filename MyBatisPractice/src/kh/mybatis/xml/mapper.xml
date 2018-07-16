@@ -5,12 +5,17 @@
 
     <mapper namespace="Student">
     
-    <select id="select">
+    <select id="select" resultType="StudentDTO">
     	select * from sutdent
     </select>
     
-    <insert id="insert">
+    <insert id="insert" parameterType="StudentDTO">
     	insert into sutdent values (sutdent_seq.nextval,#{memberid},#{password},#{name},#{email})
     </insert>
     
+    <select id="logincheck" resultType="StudentDTO" parameterType="StudentDTO" >
+    	select * from sutdent where memberid = #{memberid} and  password = #{password}
+    </select>
+    
+
     </mapper>

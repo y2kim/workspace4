@@ -12,7 +12,6 @@ public class StudentDTO {
 	}
 
 	public StudentDTO(int seq, String memberid, String password, String name, String email) {
-		super();
 		this.seq = seq;
 		this.memberid = memberid;
 		this.password = password;

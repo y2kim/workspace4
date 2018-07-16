@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="memberdto.JdbcTemplate"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="memberdto.Minfo"/>
-<fullyQualifiedTypeName name="memberdto.PersonDAO"/>
-<fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="java.sql.DriverManager"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="web.controller.DataBaseDao"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="oracle.net.aso.d"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
@@ -52,11 +44,20 @@
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="kh.mybatis.factory.MyBatisSqlSessionFactory"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="oracle.net.jdbc.nl.NetStrings"/>
 <fullyQualifiedTypeName name="kh.mybatis.dto.MessagesDTO"/>
 <fullyQualifiedTypeName name="kh.mybatis.dao.MessagesDAO"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="kh.mybatis.imapper.IMessgesDAO"/>
+<fullyQualifiedTypeName name="kh.mybatis.dao.MessagesDAOimpl"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Insert"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Delete"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Select"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
+<fullyQualifiedTypeName name="kh.mybatis.dao.StudentDAO"/>
+<fullyQualifiedTypeName name="ks.mybatis.factory.MyBatisSqlSessionFactory"/>
+<fullyQualifiedTypeName name="kh.mybatis.dto.StudentDTO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

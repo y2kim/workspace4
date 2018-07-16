@@ -1,7 +1,9 @@
 package kh.mybatis.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,7 +40,7 @@ public class FrontController extends HttpServlet {
 			}
 			
 			request.setAttribute("list", list);
-			RequestDispatcher rd = request.getRequestDispatcher("info.html");
+			RequestDispatcher rd = request.getRequestDispatcher("info.jsp");
 			rd.forward(request, response);
 			
 		}else if(command.equals("/insert.do")) {
@@ -54,9 +56,26 @@ public class FrontController extends HttpServlet {
 			String resultMessage = result >0 ? " 입력 성공" : "입력 실패";
 			System.out.println(resultMessage);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 			
+		}else if(command.equals("/login.do")) {
+			String memberid = request.getParameter("memberid");
+			String password = request.getParameter("password");
+			System.out.println(memberid);
+			System.out.println(password);
+			Map<String, String> condition = new HashMap<String,String>();
+			
+			condition.put("memberid", memberid);
+			condition.put("password", password);
+			
+			StudentDAO sdao = new StudentDAO();
+			List<StudentDTO> list =
+					sdao.loginStudent(MyBatisSqlSessionFactory.getSqlSession(), condition);
+			
+			request.setAttribute("list", list);
+			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			rd.forward(request, response);
 		}
 	}
 

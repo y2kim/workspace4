@@ -1,6 +1,7 @@
 package kh.mybatis.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -28,8 +29,19 @@ public class StudentDAO {
 		} finally {
 			session.close();
 		}
-		// 우리가 만들것  "Messages.selectAll"  <-- namespace
-		// 세션은 닫히게 만들어야함 
+
+		return list;
+	}
+	
+	public List<StudentDTO> loginStudent(SqlSession session, Map<String, String> condition) {
+		List<StudentDTO> list = null;
+		try {
+			list = session.selectList("Student.logincheck",condition);
+			
+		} finally {
+			session.close();
+		}
+ 
 		return list;
 	}
 	
